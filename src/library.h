@@ -42,6 +42,45 @@ MOS_3L_5s_generator=757c
 	 */
 Tunings::KeyboardMapping default_kbm = Tunings::startScaleOnAndTuneNoteTo(60, 69, 440.0);
 
+/* result: 
+
+
+tuning table -- apply layout then assign MIDI notes in order.
+*/
 
 Tunings::Tuning default_12_edo(scale_12_edo, default_kbm, false);
+
+// struct sub_scale
+
+
+struct hex_value_pair {
+  hex_t hex;
+  int value;
+};
+
+struct key_layout {
+  hex_t root_location;
+  hex_value_pair small_axis;
+  hex_value_pair large_axis;
+  std::vector<hex_value_pair> overrides;
+  int OLED_orientation;
+  key_layout& rotate(const int sextants) {
+    // do a rotation transform and return
+  }
+};
+
+key_layout wicki_hayden_12 = {
+  {0, 0}, {dir_e, 2}, {dir_nw, 5}
+};
+
+void apply_layout() {
+  // input the full switchboard,
+  // tuning def, layout, sub_scale
+
+  // output h.midinote, h.midibend,
+  // h.scaledegree and equave,
+  // h frequencies
+  // & MTS tuning table
+}
+
 
