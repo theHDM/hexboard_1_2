@@ -1,8 +1,9 @@
 #include "src/utils.h"            // helpful utility functions
-#include "src/timing.h"            // helpful utility functions
+#include "src/RTOS_timer.h"            // helpful utility functions
 #include "src/diagnostics.h"
 #include "src/hexBoardHardware.h" // API to work with hexBoard hardware
-#include "src/hexBoardSystem.h" // API to work with hexBoard hardware
+#include "src/hexBoardLayout.h" // API to work with hexBoard hardware
+#include "src/midiHandler.h"
 
 void read_key(button_t& b) {
   b.key_state    = pinGrid.read_keypress(b.atMux, b.atCol);

@@ -1,6 +1,6 @@
 #pragma once
 #include <stdint.h>
-#include "hexBoardSystem.h"
+#include "hexBoardLayout/buttonGrid.h"
 /*
   This section of the code handles all
   things related to MIDI messages.
@@ -41,7 +41,7 @@ void midi_note_on(music_key_t& h) {
     if (MPE_channel_queue.empty()) return;
     h.midiChPlaying = MPE_channel_queue.front();
     ALL_MIDI_DEVICES(sendPitchBend, h.midiBend, h.midiChPlaying);    
-    MPE_channel_queue.pop_front;
+    MPE_channel_queue.pop_front();
   } else {
     h.midiChPlaying = h.midiCh;
   } 
